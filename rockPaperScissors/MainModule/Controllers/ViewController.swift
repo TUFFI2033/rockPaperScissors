@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     private let logoImage: UIImageView = {
         let img = UIImageView(image: UIImage(named: "rockPaperScissors"))
+        img.contentMode = .scaleAspectFit
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -47,19 +48,24 @@ class ViewController: UIViewController {
     
     private lazy var seeInstructionButton: UIButton = {
         let button = UIButton(type: .system)
+        button.backgroundColor = .specialWhite
         button.setTitle("See the instruction ?", for: .normal)
-        button.tintColor = .specialWhite
-        button.titleLabel?.font = .robotoMediu16()
+        button.tintColor = .specialBackground
+        button.titleLabel?.font = .robotoMedium16()
+        button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(seeInstructionButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
+    private let customAlertSetting = CustomAlertSettingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstrains()
+        MusicSetting.share.setMusic()
     }
 
     private func setupViews() {
@@ -73,6 +79,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func settingButtonTapped() {
+        customAlertSetting.presentCustomAlert(viewController: self)
         print("Tap setting")
     }
     
