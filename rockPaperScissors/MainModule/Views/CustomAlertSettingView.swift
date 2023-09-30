@@ -33,6 +33,7 @@ class CustomAlertSettingView: UIView {
         let label = UILabel()
         label.text = "Setting"
         label.font = .robotoBold32()
+        label.textColor = .specialWhite
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -100,6 +101,7 @@ class CustomAlertSettingView: UIView {
         let label = UILabel()
         label.text = text
         label.font = .robotoBold26()
+        label.textColor = .specialWhite
         return label
     }
     
@@ -135,7 +137,6 @@ class CustomAlertSettingView: UIView {
     }
     
     private func setupViews() {
-        alertView.addSubview(settingLabel)
         alertView.addSubview(settingLabel)
         
         stackMusicView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Music"), switchMusic], axis: .horizontal, spacing: 70)

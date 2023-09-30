@@ -80,11 +80,12 @@ class ViewController: UIViewController {
     
     @objc private func settingButtonTapped() {
         customAlertSetting.presentCustomAlert(viewController: self)
-        print("Tap setting")
     }
     
     @objc private func playButtonTapped() {
-        print("Tap play")
+        let startPlayViewController = StartPlayViewController()
+        startPlayViewController.modalPresentationStyle = .fullScreen
+        present(startPlayViewController, animated: true)
     }
     
     @objc private func seeInstructionButtonTapped() {
@@ -108,17 +109,18 @@ extension ViewController {
             settingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             playButton.heightAnchor.constraint(equalToConstant: 70),
-            playButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 240),
+            playButton.bottomAnchor.constraint(equalTo: seeInstructionButton.topAnchor, constant: -20),
             playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
             playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
             
+            
             seeInstructionButton.heightAnchor.constraint(equalToConstant: 20),
-            seeInstructionButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
+            seeInstructionButton.bottomAnchor.constraint(equalTo: iCraftersLabel.topAnchor, constant: -50),
             seeInstructionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             seeInstructionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
             
-            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
-            iCraftersLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            iCraftersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

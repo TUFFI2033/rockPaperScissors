@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1530D72AC8442D006C9964 /* StartPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1530D62AC8442D006C9964 /* StartPlayViewController.swift */; };
+		DD1530D92AC86322006C9964 /* CustomAlertPause.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1530D82AC86321006C9964 /* CustomAlertPause.swift */; };
 		DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */; };
 		DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */; };
 		DD3BAF012AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD3BAF002AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1530D62AC8442D006C9964 /* StartPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPlayViewController.swift; sourceTree = "<group>"; };
+		DD1530D82AC86321006C9964 /* CustomAlertPause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertPause.swift; sourceTree = "<group>"; };
 		DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertSettingView.swift; sourceTree = "<group>"; };
 		DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		DD3BAF002AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lady-of-the-80x27s-128379.mp3"; sourceTree = "<group>"; };
@@ -51,6 +55,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD1530D02AC84378006C9964 /* StartPlayModule */ = {
+			isa = PBXGroup;
+			children = (
+				DD1530D12AC8439F006C9964 /* Models */,
+				DD1530D22AC843AA006C9964 /* Views */,
+				DD1530D32AC843B3006C9964 /* Controllers */,
+			);
+			path = StartPlayModule;
+			sourceTree = "<group>";
+		};
+		DD1530D12AC8439F006C9964 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD1530D22AC843AA006C9964 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD1530D82AC86321006C9964 /* CustomAlertPause.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD1530D32AC843B3006C9964 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD1530D62AC8442D006C9964 /* StartPlayViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		DD3BAEFA2AC60DB9004C7200 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +125,7 @@
 			children = (
 				DD664AFA2AC0AAFE008B1363 /* Application */,
 				DD664AFD2AC0AB5E008B1363 /* MainModule */,
+				DD1530D02AC84378006C9964 /* StartPlayModule */,
 				DD664B002AC0ABC3008B1363 /* Extensions */,
 				DD664AFB2AC0AB24008B1363 /* SupportingFiles */,
 			);
@@ -204,7 +242,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					DD664AE22AC0AA29008B1363 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -249,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1530D92AC86322006C9964 /* CustomAlertPause.swift in Sources */,
 				DD664AEB2AC0AA29008B1363 /* ViewController.swift in Sources */,
+				DD1530D72AC8442D006C9964 /* StartPlayViewController.swift in Sources */,
 				DD664B032AC0AC28008B1363 /* UIColor + Extensions.swift in Sources */,
 				DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */,
 				DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */,
@@ -310,6 +350,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -324,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -370,6 +411,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -378,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
