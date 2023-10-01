@@ -11,7 +11,6 @@
 		DD1530D92AC86322006C9964 /* CustomAlertPause.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1530D82AC86321006C9964 /* CustomAlertPause.swift */; };
 		DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */; };
 		DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */; };
-		DD3BAF012AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD3BAF002AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 */; };
 		DD3BAF032AC78285004C7200 /* MusicSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAF022AC78285004C7200 /* MusicSetting.swift */; };
 		DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AE62AC0AA29008B1363 /* AppDelegate.swift */; };
 		DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AE82AC0AA29008B1363 /* SceneDelegate.swift */; };
@@ -23,6 +22,7 @@
 		DD664B0C2AC0BCDA008B1363 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD664B0A2AC0BCDA008B1363 /* Roboto-Bold.ttf */; };
 		DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */; };
 		DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DE1402AC978680072890B /* UIView + Extensions.swift */; };
+		DD7DE1432AC986720072890B /* lady-of-the-80x27s-128379.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,6 @@
 		DD1530D82AC86321006C9964 /* CustomAlertPause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertPause.swift; sourceTree = "<group>"; };
 		DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertSettingView.swift; sourceTree = "<group>"; };
 		DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
-		DD3BAF002AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lady-of-the-80x27s-128379.mp3"; sourceTree = "<group>"; };
 		DD3BAF022AC78285004C7200 /* MusicSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSetting.swift; sourceTree = "<group>"; };
 		DD664AE32AC0AA29008B1363 /* rockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD664AE62AC0AA29008B1363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		DD664B0A2AC0BCDA008B1363 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		DD7DE1402AC978680072890B /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lady-of-the-80x27s-128379.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		DD3BAEFF2AC77D9E004C7200 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				DD3BAF002AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 */,
+				DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 				DD664AF02AC0AA2B008B1363 /* Assets.xcassets in Resources */,
 				DD664B0C2AC0BCDA008B1363 /* Roboto-Bold.ttf in Resources */,
 				DD664B0B2AC0BCDA008B1363 /* Roboto-Medium.ttf in Resources */,
-				DD3BAF012AC77DB5004C7200 /* lady-of-the-80x27s-128379.mp3 in Resources */,
+				DD7DE1432AC986720072890B /* lady-of-the-80x27s-128379.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +437,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rockPaperScissors/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -468,7 +468,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rockPaperScissors/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

@@ -59,7 +59,6 @@ class StartPlayViewController: UIViewController {
         view.addSubview(stackPaperRandom)
         view.addSubview(rockButton)
         view.addSubview(scissorsButton)
-        
     }
     
     private func selectActionLabel(text: String, color: UIColor) -> UILabel{

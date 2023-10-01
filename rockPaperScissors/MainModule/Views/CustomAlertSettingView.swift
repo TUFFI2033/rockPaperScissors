@@ -96,6 +96,15 @@ class CustomAlertSettingView: UIView {
         setConstrains()
     }
     
+    private func setupViews() {
+        alertView.addSubview(settingLabel)
+        
+        stackMusicView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Music"), switchMusic], axis: .horizontal, spacing: 70)
+        stackSoundView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Sound"), switchSound], axis: .horizontal, spacing: 70)
+        alertView.addSubview(stackMusicView)
+        alertView.addSubview(stackSoundView)
+        alertView.addSubview(closeButton)
+    }
     
     private func labelMusicOrSound(text: String) -> UILabel {
         let label = UILabel()
@@ -111,7 +120,6 @@ class CustomAlertSettingView: UIView {
         } else {
             MusicSetting.share.audioPlayer?.stop()
         }
-        print("tap music swich")
     }
     
     @objc private func switchSoundTapped() {
@@ -136,15 +144,7 @@ class CustomAlertSettingView: UIView {
        }
     }
     
-    private func setupViews() {
-        alertView.addSubview(settingLabel)
-        
-        stackMusicView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Music"), switchMusic], axis: .horizontal, spacing: 70)
-        stackSoundView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Sound"), switchSound], axis: .horizontal, spacing: 70)
-        alertView.addSubview(stackMusicView)
-        alertView.addSubview(stackSoundView)
-        alertView.addSubview(closeButton)
-    }
+
 }
 
 // MARK: - Set Constraints
