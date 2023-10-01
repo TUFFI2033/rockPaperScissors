@@ -22,6 +22,7 @@
 		DD664B0B2AC0BCDA008B1363 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD664B092AC0BCDA008B1363 /* Roboto-Medium.ttf */; };
 		DD664B0C2AC0BCDA008B1363 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD664B0A2AC0BCDA008B1363 /* Roboto-Bold.ttf */; };
 		DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */; };
+		DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DE1402AC978680072890B /* UIView + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DD664B092AC0BCDA008B1363 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		DD664B0A2AC0BCDA008B1363 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
+		DD7DE1402AC978680072890B /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,18 +60,10 @@
 		DD1530D02AC84378006C9964 /* StartPlayModule */ = {
 			isa = PBXGroup;
 			children = (
-				DD1530D12AC8439F006C9964 /* Models */,
 				DD1530D22AC843AA006C9964 /* Views */,
 				DD1530D32AC843B3006C9964 /* Controllers */,
 			);
 			path = StartPlayModule;
-			sourceTree = "<group>";
-		};
-		DD1530D12AC8439F006C9964 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		DD1530D22AC843AA006C9964 /* Views */ = {
@@ -201,6 +195,7 @@
 				DD664B022AC0AC28008B1363 /* UIColor + Extensions.swift */,
 				DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */,
 				DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */,
+				DD7DE1402AC978680072890B /* UIView + Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -294,6 +289,7 @@
 				DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */,
 				DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */,
 				DD3BAF032AC78285004C7200 /* MusicSetting.swift in Sources */,
+				DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */,
 				DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */,
 				DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */,
 				DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */,

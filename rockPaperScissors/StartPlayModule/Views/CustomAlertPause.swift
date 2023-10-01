@@ -108,7 +108,22 @@ class CustomAlertPause {
     }
     
     @objc private func quitButtonTapped() {
-        print("tap quit")
+        guard let targetView = mainView else { return }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.backgrouundView.alpha = 0
+            } completion: { done in
+                if done {
+                    self.scrollView.removeFromSuperview()
+                    if let viewController = self.mainView?.findViewController(ofType: StartPlayViewController.self) {
+                        viewController.dismiss(animated: true)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -129,3 +144,4 @@ extension CustomAlertPause {
     }
     
 }
+
