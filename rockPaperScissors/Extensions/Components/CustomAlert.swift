@@ -1,13 +1,13 @@
 //
-//  CustomAlertPause.swift
+//  CustomAlert.swift
 //  rockPaperScissors
 //
-//  Created by Ivan Byndiu on 30/09/2023.
+//  Created by Ivan Byndiu on 08/10/2023.
 //
 
 import UIKit
 
-class CustomAlertPause {
+class CustomAlert {
     
     private let scrollView = UIScrollView()
     private var mainView: UIView?
@@ -28,7 +28,6 @@ class CustomAlertPause {
     
     private let pauseLabel: UILabel = {
         let label = UILabel()
-        label.text = "Setting"
         label.font = .robotoBold32()
         label.textColor = .specialWhite
         label.textAlignment = .center
@@ -40,7 +39,7 @@ class CustomAlertPause {
     private lazy var quitButton = UIButton()
     private lazy var stackView = UIStackView()
     
-    func presentCustomAlert(viewController: UIViewController) {
+    func presentCustomAlert(viewController: UIViewController,title: String, text: String) {
         
         guard let parentView = viewController.view else { return }
         mainView = parentView
@@ -64,14 +63,15 @@ class CustomAlertPause {
                 }
             }
         }
-        setupViews()
+        setupViews(title: title, text: text)
         setConstrains()
     }
     
-    private func setupViews() {
+    private func setupViews(title: String, text: String) {
         alertView.addSubview(pauseLabel)
         
-        resumeButton = createButton(text: "Resume")
+        pauseLabel.text = title
+        resumeButton = createButton(text: text)
         quitButton = createButton(text: "Quit")
         resumeButton.addTarget(self, action: #selector(resumeButtonTapped), for: .touchUpInside)
         quitButton.addTarget(self, action: #selector(quitButtonTapped), for: .touchUpInside)
@@ -129,7 +129,7 @@ class CustomAlertPause {
 
 // MARK: - Set Constraints
 
-extension CustomAlertPause {
+extension CustomAlert {
     
     private func setConstrains() {
         
@@ -144,4 +144,3 @@ extension CustomAlertPause {
     }
     
 }
-

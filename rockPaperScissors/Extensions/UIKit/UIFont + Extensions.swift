@@ -33,5 +33,9 @@ extension UIFont {
     
     static func robotoBold36() -> UIFont? {
         UIFont.init(name: "Roboto-Bold", size: 36)
+    } 
+    
+    static func robotoBold40() -> UIFont? {
+        UIFont.init(name: "Roboto-Bold", size: 40)
     }
 }

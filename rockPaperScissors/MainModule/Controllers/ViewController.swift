@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         
         setupViews()
         setConstrains()
-        MusicSetting.share.setMusic()
+//        MusicSetting.share.setMusic()
     }
 
     private func setupViews() {
