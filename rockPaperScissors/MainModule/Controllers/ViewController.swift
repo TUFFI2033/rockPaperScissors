@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     
     private let logoImage: UIImageView = {
         let img = UIImageView(image: UIImage(named: "rockPaperScissors"))
+        img.contentMode = .scaleAspectFit
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -47,19 +48,25 @@ class ViewController: UIViewController {
     
     private lazy var seeInstructionButton: UIButton = {
         let button = UIButton(type: .system)
+        button.backgroundColor = .specialWhite
         button.setTitle("See the instruction ?", for: .normal)
-        button.tintColor = .specialWhite
-        button.titleLabel?.font = .robotoMediu16()
+        button.tintColor = .specialBackground
+        button.titleLabel?.font = .robotoMedium16()
+        button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(seeInstructionButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
+    private let customAlertSetting = CustomAlertSettingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstrains()
+        MusicSetting.share.setMusic()
+        SoundSetting.share.setMusic()
     }
 
     private func setupViews() {
@@ -73,15 +80,21 @@ class ViewController: UIViewController {
     }
     
     @objc private func settingButtonTapped() {
-        print("Tap setting")
+        customAlertSetting.presentCustomAlert(viewController: self)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func playButtonTapped() {
-        print("Tap play")
+        let startPlayViewController = StartPlayViewController()
+        startPlayViewController.modalPresentationStyle = .fullScreen
+        present(startPlayViewController, animated: true)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func seeInstructionButtonTapped() {
-        print("Tap See the instruction")
+        let instructionsViewController = InstructionsViewController()
+        present(instructionsViewController, animated: true)
+        customAlertSetting.switchSoundTapped()
     }
 }
 
@@ -101,17 +114,18 @@ extension ViewController {
             settingButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             playButton.heightAnchor.constraint(equalToConstant: 70),
-            playButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 240),
+            playButton.bottomAnchor.constraint(equalTo: seeInstructionButton.topAnchor, constant: -20),
             playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
             playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
             
+            
             seeInstructionButton.heightAnchor.constraint(equalToConstant: 20),
-            seeInstructionButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 20),
+            seeInstructionButton.bottomAnchor.constraint(equalTo: iCraftersLabel.topAnchor, constant: -50),
             seeInstructionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             seeInstructionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
             
-            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
-            iCraftersLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            iCraftersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
