@@ -65,7 +65,8 @@ class ViewController: UIViewController {
         
         setupViews()
         setConstrains()
-//        MusicSetting.share.setMusic()
+        MusicSetting.share.setMusic()
+        SoundSetting.share.setMusic()
     }
 
     private func setupViews() {
@@ -80,16 +81,20 @@ class ViewController: UIViewController {
     
     @objc private func settingButtonTapped() {
         customAlertSetting.presentCustomAlert(viewController: self)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func playButtonTapped() {
         let startPlayViewController = StartPlayViewController()
         startPlayViewController.modalPresentationStyle = .fullScreen
         present(startPlayViewController, animated: true)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func seeInstructionButtonTapped() {
-        print("Tap See the instruction")
+        let instructionsViewController = InstructionsViewController()
+        present(instructionsViewController, animated: true)
+        customAlertSetting.switchSoundTapped()
     }
 }
 

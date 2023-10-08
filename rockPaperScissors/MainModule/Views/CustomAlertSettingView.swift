@@ -122,29 +122,35 @@ class CustomAlertSettingView: UIView {
         }
     }
     
-    @objc private func switchSoundTapped() {
-        print("tap sound swich")
+    @objc func switchSoundTapped() {
+        if switchSound.isOn {
+            SoundSetting.share.audioPlayer?.play()
+        } else {
+            SoundSetting.share.audioPlayer?.stop()
+        }
     }
     
     @objc private func closeButtonTapped() {
-       guard let targetView = mainView else { return }
-       
-       UIView.animate(withDuration: 0.3) {
-           self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
-       } completion: { _ in
-           UIView.animate(withDuration: 0.3) {
-               self.backgrouundView.alpha = 0
-           } completion: { done in
-               if done {
-                   self.scrollView.removeFromSuperview()
-                   self.stackMusicView.removeFromSuperview()
-                   self.stackSoundView.removeFromSuperview()
-               }
-           }
-       }
+        guard let targetView = mainView else { return }
+        
+        switchSoundTapped()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.backgrouundView.alpha = 0
+            } completion: { done in
+                if done {
+                    self.scrollView.removeFromSuperview()
+                    self.stackMusicView.removeFromSuperview()
+                    self.stackSoundView.removeFromSuperview()
+                }
+            }
+        }
     }
     
-
+    
 }
 
 // MARK: - Set Constraints

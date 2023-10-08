@@ -18,14 +18,14 @@ class StartPlayViewController: UIViewController {
         return button
     }()
     
-//    private let vsLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "VS"
-//        label.font = .robotoBold40()
-//        label.textColor = .specialWhite
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
+    //    private let vsLabel: UILabel = {
+    //        let label = UILabel()
+    //        label.text = "VS"
+    //        label.font = .robotoBold40()
+    //        label.textColor = .specialWhite
+    //        label.translatesAutoresizingMaskIntoConstraints = false
+    //        return label
+    //    }()
     
     private let progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
@@ -34,7 +34,7 @@ class StartPlayViewController: UIViewController {
         progressView.layer.cornerRadius = 10
         progressView.clipsToBounds = true
         progressView.setProgress(0, animated: false)
-        progressView.layer.sublayers?[1].cornerRadius = 10
+        progressView.layer.sublayers?[1].cornerRadius = 0
         progressView.subviews[1].clipsToBounds = true
         progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
@@ -47,6 +47,7 @@ class StartPlayViewController: UIViewController {
     private lazy var randomButton = UIButton()
     private lazy var stackPaperRandom = UIStackView()
     private let customAlertPause = CustomAlert()
+    private let customAlertSetting = CustomAlertSettingView()
     private let handRock = Hand(text: "Y\nO\nU",
                                 textColor: .specialPurple,
                                 background: .specialYellow)
@@ -78,6 +79,7 @@ class StartPlayViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .specialBackground
+        progressView.setProgress(0.5, animated: true)
         
         stackSelectLabel = UIStackView(arrangedSubviews:
                                         [selectActionLabel(text: "Select an", color: .specialWhite),
@@ -99,7 +101,7 @@ class StartPlayViewController: UIViewController {
         scissorsButton.addTarget(self, action: #selector(scissorsButtonTapped), for: .touchUpInside)
         randomButton.addTarget(self, action: #selector(randomButtonTapped), for: .touchUpInside)
         
-//        vsLabel.isHidden = true
+        //        vsLabel.isHidden = true
         progressView.isHidden = true
         handRock.isHidden = true
         handPaper.isHidden = true
@@ -114,7 +116,7 @@ class StartPlayViewController: UIViewController {
         view.addSubview(stackPaperRandom)
         view.addSubview(rockButton)
         view.addSubview(scissorsButton)
-//        view.addSubview(vsLabel)
+        //        view.addSubview(vsLabel)
         view.addSubview(progressView)
         view.addSubview(handRock)
         view.addSubview(handPaper)
@@ -145,91 +147,122 @@ class StartPlayViewController: UIViewController {
     }
     
     private func play(sign: Sign) {
-        progressView.isHidden = false
-        
         let computerSign = randomSign()
         
-        switch computerSign {
-        case .rock:
-            handRockBot.isHidden = false
-        case .paper:
-            handPaperBot.isHidden = false
-        case .scissors:
-            handSccisorsBot.isHidden = false
-        case .random:
-            handPaperBot.isHidden = false
-        }
+        //        switch computerSign {
+        //        case .rock:
+        //            handRockBot.isHidden = false
+        //        case .paper:
+        //            handPaperBot.isHidden = false
+        //        case .scissors:
+        //            handSccisorsBot.isHidden = false
+        //        case .random:
+        //            handPaperBot.isHidden = false
+        //        }
         
         switch sign {
         case .rock:
-            rockButton.isHidden = true
-            paperButton.isHidden = true
-            scissorsButton.isHidden = true
-            randomButton.isHidden = true
-            stackSelectLabel.isHidden = true
-//            vsLabel.isHidden = false
-            handRock.isHidden = false
+            setHandIsHidden(name: handRock)
         case .paper:
-            rockButton.isHidden = true
-            paperButton.isHidden = true
-            scissorsButton.isHidden = true
-            randomButton.isHidden = true
-            stackSelectLabel.isHidden = true
-//            vsLabel.isHidden = false
-            handPaper.isHidden = false
+            setHandIsHidden(name: handPaper)
         case .scissors:
-            rockButton.isHidden = true
-            paperButton.isHidden = true
-            scissorsButton.isHidden = true
-            randomButton.isHidden = true
-            stackSelectLabel.isHidden = true
-//            vsLabel.isHidden = false
-            handSccisors.isHidden = false
+            setHandIsHidden(name: handSccisors)
         case .random:
-            rockButton.isHidden = true
-            paperButton.isHidden = true
-            scissorsButton.isHidden = true
-            randomButton.isHidden = true
-            stackSelectLabel.isHidden = true
-//            vsLabel.isHidden = false
-            handRandom.isHidden = false
+            setHandIsHidden(name: handRandom)
         }
         
+        progressView.isHidden = false
         let result = sign.getResult(oposite: computerSign)
+        let currentValue = progressView.progress
         
         switch result {
         case .start:
             print("Never")
         case .win:
-            progressView.setProgress(1, animated: true)
-            customAlertPause.presentCustomAlert(viewController: self, title: "YOU WIN", text: "Play again")
+            print("win")
+            UIView.animate(withDuration: 0.5) {
+                self.progressView.setProgress(currentValue + 0.3, animated: true)
+            } completion: { _ in
+                self.checkResult()
+                self.resetPlay()
+            }
         case .lose:
-            progressView.setProgress(0, animated: true)
-            customAlertPause.presentCustomAlert(viewController: self, title: "YOU LOSE", text: "Play again")
+            print("lose")
+            UIView.animate(withDuration: 0.5) {
+                self.progressView.setProgress(currentValue - 0.3, animated: true)
+            } completion: { _ in
+                self.checkResult()
+                self.resetPlay()
+            }
         case .draw:
-            progressView.setProgress(0.5, animated: true)
-            customAlertPause.presentCustomAlert(viewController: self, title: "DRAW", text: "Play again")
+            print("draw")
+            self.resetPlay()
+        }
+    }
+    
+    private func setHandIsHidden(name: Hand) {
+        rockButton.isHidden = true
+        paperButton.isHidden = true
+        scissorsButton.isHidden = true
+        randomButton.isHidden = true
+        stackSelectLabel.isHidden = true
+        //            vsLabel.isHidden = false
+        name.isHidden = false
+    }
+    
+    private func resetPlay() {
+        rockButton.isHidden = false
+        paperButton.isHidden = false
+        scissorsButton.isHidden = false
+        randomButton.isHidden = false
+        stackSelectLabel.isHidden = true
+        handRock.isHidden = true
+        handPaper.isHidden = true
+        handSccisors.isHidden = true
+        handRandom.isHidden = true
+    }
+    
+    private func checkResult() {
+        let currentValue = progressView.progress
+        
+        if currentValue == 1 {
+            self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU WIN", text: "Play again")
+            UIView.animate(withDuration: 0.8) {
+                self.progressView.setProgress(0.5, animated: true)
+            }
+        }
+        
+        if currentValue == 0 {
+            self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU LOSE", text: "Play again")
+            UIView.animate(withDuration: 0.8) {
+                self.progressView.setProgress(0.5, animated: true)
+            }
         }
     }
     
     @objc private func pauseButtonTapped() {
         customAlertPause.presentCustomAlert(viewController: self, title: "Setting", text: "Resume")
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func rockButtonTapped() {
         play(sign: .rock)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func paperButtonTapped() {
         play(sign: .paper)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func scissorsButtonTapped() {
         play(sign: .scissors)
+        customAlertSetting.switchSoundTapped()
     }
     
     @objc private func randomButtonTapped() {
         play(sign: .random)
+        customAlertSetting.switchSoundTapped()
     }
 }
 

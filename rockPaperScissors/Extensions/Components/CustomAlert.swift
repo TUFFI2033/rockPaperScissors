@@ -38,6 +38,7 @@ class CustomAlert {
     private lazy var resumeButton = UIButton()
     private lazy var quitButton = UIButton()
     private lazy var stackView = UIStackView()
+    private let customAlertSetting = CustomAlertSettingView()
     
     func presentCustomAlert(viewController: UIViewController,title: String, text: String) {
         
@@ -92,23 +93,27 @@ class CustomAlert {
     }
     
     @objc private func resumeButtonTapped() {
-       guard let targetView = mainView else { return }
-       
-       UIView.animate(withDuration: 0.3) {
-           self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
-       } completion: { _ in
-           UIView.animate(withDuration: 0.3) {
-               self.backgrouundView.alpha = 0
-           } completion: { done in
-               if done {
-                   self.scrollView.removeFromSuperview()
-               }
-           }
-       }
+        guard let targetView = mainView else { return }
+        
+        customAlertSetting.switchSoundTapped()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.backgrouundView.alpha = 0
+            } completion: { done in
+                if done {
+                    self.scrollView.removeFromSuperview()
+                }
+            }
+        }
     }
     
     @objc private func quitButtonTapped() {
         guard let targetView = mainView else { return }
+        
+        customAlertSetting.switchSoundTapped()
         
         UIView.animate(withDuration: 0.3) {
             self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
