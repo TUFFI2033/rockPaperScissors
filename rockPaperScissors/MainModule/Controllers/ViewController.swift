@@ -92,9 +92,8 @@ class ViewController: UIViewController {
     }
     
     @objc private func seeInstructionButtonTapped() {
-        let instructionsViewController = InstructionsViewController()
-        present(instructionsViewController, animated: true)
-        customAlertSetting.switchSoundTapped()
+        let seeInstruction = SeeInstructionViewController()
+        present(seeInstruction, animated: true)
     }
 }
 

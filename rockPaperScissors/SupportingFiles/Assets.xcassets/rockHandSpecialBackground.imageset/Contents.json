@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "handRockSpecialBackground.png",
+      "filename" : "rockHandSpecialBackground.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "handRockSpecialBackground@2x.png",
+      "filename" : "rockHandSpecialBackground@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "handRockSpecialBackground@3x.png",
+      "filename" : "rockHandSpecialBackground@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

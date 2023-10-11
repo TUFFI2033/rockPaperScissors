@@ -29,7 +29,6 @@ class CustomAlert {
     private let pauseLabel: UILabel = {
         let label = UILabel()
         label.font = .robotoBold32()
-        label.textColor = .specialWhite
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,7 +39,7 @@ class CustomAlert {
     private lazy var stackView = UIStackView()
     private let customAlertSetting = CustomAlertSettingView()
     
-    func presentCustomAlert(viewController: UIViewController,title: String, text: String) {
+    func presentCustomAlert(viewController: UIViewController,title: String, text: String, color: UIColor) {
         
         guard let parentView = viewController.view else { return }
         mainView = parentView
@@ -64,14 +63,15 @@ class CustomAlert {
                 }
             }
         }
-        setupViews(title: title, text: text)
+        setupViews(title: title, text: text, color: color)
         setConstrains()
     }
     
-    private func setupViews(title: String, text: String) {
+    private func setupViews(title: String, text: String, color: UIColor) {
         alertView.addSubview(pauseLabel)
         
         pauseLabel.text = title
+        pauseLabel.textColor = color
         resumeButton = createButton(text: text)
         quitButton = createButton(text: "Quit")
         resumeButton.addTarget(self, action: #selector(resumeButtonTapped), for: .touchUpInside)
