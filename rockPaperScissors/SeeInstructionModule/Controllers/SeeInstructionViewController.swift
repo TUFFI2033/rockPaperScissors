@@ -69,7 +69,8 @@ extension SeeInstructionViewController {
             closeButton.widthAnchor.constraint(equalToConstant: 27),
             closeButton.heightAnchor.constraint(equalToConstant: 27),
             
-            imageRPS.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageRPS.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            imageRPS.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             imageRPS.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
