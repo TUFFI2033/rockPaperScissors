@@ -21,48 +21,38 @@ func randomSign() -> Sign {
 }
 
 enum Sign {
-    case rock, paper, scissors, random
+    
+    case rock, paper, scissors
     
     func getResult(oposite: Sign) -> GameState {
         switch (self, oposite) {
-        case (.rock, .rock),
-            (.paper, .paper),
-            (.scissors, .scissors):
-            return .draw
         case (.rock, .scissors),
             (.paper, .rock),
             (.scissors, .paper):
+            print(self, oposite)
             return .win
+        case (.rock, .rock),
+            (.paper, .paper),
+            (.scissors, .scissors):
+            print(self, oposite)
+            return .draw
         default :
+            print(self, oposite)
             return .lose
         }
     }
-}
-    
 
-
-var imgRandom: UIImage {
-    switch randomSign() {
-    case .rock:
-        UIImage(named: "handRockSpecialBackground")!
-    case .paper:
-        UIImage(named: "handPaperSpecialBackground")!
-    default:
-        UIImage(named: "handSccisorsSpecialBackground")!
+    var imageHand: UIImage {
+        
+        switch self {
+        case .rock:
+            return UIImage(named: "rockHandSpecialBackgroundBot")!
+        case .paper:
+            return UIImage(named: "handPaperSpecialBackgroundBot")!
+        case .scissors:
+            return UIImage(named: "handSccisorsSpecialBackgroundBot")!
+        }
     }
 }
 
-var imageHand: UIImage {
-    let sign = randomSign()
-    
-    switch sign {
-    case .rock:
-        return UIImage(named: "handRockSpecialBackground")!
-    case .paper:
-        return UIImage(named: "handPaperSpecialBackground")!
-    case .scissors:
-        return UIImage(named: "handSccisorsSpecialBackground")!
-    case .random:
-        return imgRandom
-    }
-}
+

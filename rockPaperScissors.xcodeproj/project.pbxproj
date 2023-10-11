@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD1530D72AC8442D006C9964 /* StartPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1530D62AC8442D006C9964 /* StartPlayViewController.swift */; };
 		DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */; };
 		DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */; };
 		DD3BAF032AC78285004C7200 /* MusicSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3BAF022AC78285004C7200 /* MusicSetting.swift */; };
@@ -15,8 +14,6 @@
 		DD44F5AA2AD1D0AC0068B240 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5A92AD1D0AC0068B240 /* GameState.swift */; };
 		DD44F5AC2AD1D1380068B240 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5AB2AD1D1380068B240 /* Sign.swift */; };
 		DD44F5AE2AD2DAA00068B240 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */; };
-		DD44F5B02AD302650068B240 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5AF2AD302650068B240 /* InstructionsViewController.swift */; };
-		DD44F5B22AD3056A0068B240 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5B12AD3056A0068B240 /* CloseButton.swift */; };
 		DD44F5B42AD320E50068B240 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD44F5B32AD320E50068B240 /* sound.mp3 */; };
 		DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AE62AC0AA29008B1363 /* AppDelegate.swift */; };
 		DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AE82AC0AA29008B1363 /* SceneDelegate.swift */; };
@@ -29,10 +26,11 @@
 		DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */; };
 		DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DE1402AC978680072890B /* UIView + Extensions.swift */; };
 		DD7DE1432AC986720072890B /* lady-of-the-80x27s-128379.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */; };
+		DDA810372AD5E2240061C88B /* StartPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA810362AD5E2240061C88B /* StartPlayViewController.swift */; };
+		DDA8103B2AD72B810061C88B /* SeeInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD1530D62AC8442D006C9964 /* StartPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPlayViewController.swift; sourceTree = "<group>"; };
 		DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertSettingView.swift; sourceTree = "<group>"; };
 		DD3BAEFD2AC760F8004C7200 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		DD3BAF022AC78285004C7200 /* MusicSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSetting.swift; sourceTree = "<group>"; };
@@ -40,8 +38,6 @@
 		DD44F5A92AD1D0AC0068B240 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		DD44F5AB2AD1D1380068B240 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
-		DD44F5AF2AD302650068B240 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
-		DD44F5B12AD3056A0068B240 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		DD44F5B32AD320E50068B240 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		DD664AE32AC0AA29008B1363 /* rockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD664AE62AC0AA29008B1363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +52,8 @@
 		DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		DD7DE1402AC978680072890B /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lady-of-the-80x27s-128379.mp3"; sourceTree = "<group>"; };
+		DDA810362AD5E2240061C88B /* StartPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPlayViewController.swift; sourceTree = "<group>"; };
+		DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeInstructionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +88,7 @@
 		DD1530D32AC843B3006C9964 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD1530D62AC8442D006C9964 /* StartPlayViewController.swift */,
+				DDA810362AD5E2240061C88B /* StartPlayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -98,7 +96,6 @@
 		DD3BAEFA2AC60DB9004C7200 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD44F5B12AD3056A0068B240 /* CloseButton.swift */,
 				DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */,
 				DD3BAF022AC78285004C7200 /* MusicSetting.swift */,
 			);
@@ -144,6 +141,7 @@
 			children = (
 				DD664AFA2AC0AAFE008B1363 /* Application */,
 				DD664AFD2AC0AB5E008B1363 /* MainModule */,
+				DDA810382AD72B080061C88B /* SeeInstructionModule */,
 				DD1530D02AC84378006C9964 /* StartPlayModule */,
 				DD664B002AC0ABC3008B1363 /* Extensions */,
 				DD664AFB2AC0AB24008B1363 /* SupportingFiles */,
@@ -192,7 +190,6 @@
 		DD664AFE2AC0AB6C008B1363 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD44F5AF2AD302650068B240 /* InstructionsViewController.swift */,
 				DD3BAEFB2AC60DD1004C7200 /* CustomAlertSettingView.swift */,
 			);
 			path = Views;
@@ -225,6 +222,22 @@
 				DD664B092AC0BCDA008B1363 /* Roboto-Medium.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DDA810382AD72B080061C88B /* SeeInstructionModule */ = {
+			isa = PBXGroup;
+			children = (
+				DDA810392AD72B550061C88B /* Controllers */,
+			);
+			path = SeeInstructionModule;
+			sourceTree = "<group>";
+		};
+		DDA810392AD72B550061C88B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,18 +317,17 @@
 				DD664AEB2AC0AA29008B1363 /* ViewController.swift in Sources */,
 				DD44F5AC2AD1D1380068B240 /* Sign.swift in Sources */,
 				DD44F5AA2AD1D0AC0068B240 /* GameState.swift in Sources */,
-				DD1530D72AC8442D006C9964 /* StartPlayViewController.swift in Sources */,
 				DD664B032AC0AC28008B1363 /* UIColor + Extensions.swift in Sources */,
 				DD44F5A52AD1A2E80068B240 /* Hand.swift in Sources */,
 				DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */,
 				DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */,
 				DD44F5AE2AD2DAA00068B240 /* CustomAlert.swift in Sources */,
-				DD44F5B02AD302650068B240 /* InstructionsViewController.swift in Sources */,
 				DD3BAF032AC78285004C7200 /* MusicSetting.swift in Sources */,
 				DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */,
+				DDA8103B2AD72B810061C88B /* SeeInstructionViewController.swift in Sources */,
+				DDA810372AD5E2240061C88B /* StartPlayViewController.swift in Sources */,
 				DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */,
 				DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */,
-				DD44F5B22AD3056A0068B240 /* CloseButton.swift in Sources */,
 				DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,14 +18,13 @@ class StartPlayViewController: UIViewController {
         return button
     }()
     
-    //    private let vsLabel: UILabel = {
-    //        let label = UILabel()
-    //        label.text = "VS"
-    //        label.font = .robotoBold40()
-    //        label.textColor = .specialWhite
-    //        label.translatesAutoresizingMaskIntoConstraints = false
-    //        return label
-    //    }()
+    private let winLoseOrDrawLabel: UILabel = {
+        let label = UILabel()
+        label.font = .robotoBold40()
+        label.textColor = .specialWhite
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private let progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
@@ -40,35 +39,25 @@ class StartPlayViewController: UIViewController {
         return progressView
     }()
     
+    private let customAlertPause = CustomAlert()
+    private let customAlertSetting = CustomAlertSettingView()
+    private let handYou = Hand(text: "Y\nO\nU",
+                               textColor: .specialPurple,
+                               background: .specialYellow)
+    private let handBot = Hand(text: "B\nO\nT",
+                               textColor: .specialYellow,
+                               background: .specialPurple)
+    private let whiteViewYou = UIView()
+    private let whiteViewBot = UIView()
+    private lazy var handImageYou = UIImageView()
+    private let handImageBot = UIImageView()
+    
     private lazy var stackSelectLabel = UIStackView()
     private lazy var rockButton = UIButton()
     private lazy var paperButton = UIButton()
     private lazy var scissorsButton = UIButton()
     private lazy var randomButton = UIButton()
     private lazy var stackPaperRandom = UIStackView()
-    private let customAlertPause = CustomAlert()
-    private let customAlertSetting = CustomAlertSettingView()
-    private let handRock = Hand(text: "Y\nO\nU",
-                                textColor: .specialPurple,
-                                background: .specialYellow)
-    private let handPaper = Hand(text: "Y\nO\nU",
-                                 textColor: .specialPurple,
-                                 background: .specialYellow)
-    private let handSccisors = Hand(text: "Y\nO\nU",
-                                    textColor: .specialPurple,
-                                    background: .specialYellow)
-    private let handRandom = Hand(text: "Y\nO\nU",
-                                  textColor: .specialPurple,
-                                  background: .specialYellow)
-    private let handRockBot = Hand(text: "B\nO\nT",
-                                   textColor: .specialYellow,
-                                   background: .specialPurple)
-    private let handPaperBot = Hand(text: "B\nO\nT",
-                                    textColor: .specialYellow,
-                                    background: .specialPurple)
-    private let handSccisorsBot = Hand(text: "B\nO\nT",
-                                       textColor: .specialYellow,
-                                       background: .specialPurple)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +68,23 @@ class StartPlayViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .specialBackground
+        whiteViewYou.backgroundColor = .specialWhite
+        whiteViewBot.backgroundColor = .specialWhite
+        
+        progressView.alpha = 0
+        winLoseOrDrawLabel.alpha = 0
+        handYou.alpha = 0
+        whiteViewYou.alpha = 0
+        handImageYou.alpha = 0
+        handBot.alpha = 0
+        whiteViewBot.alpha = 0
+        handImageBot.alpha = 0
+        
+        whiteViewYou.translatesAutoresizingMaskIntoConstraints = false
+        whiteViewBot.translatesAutoresizingMaskIntoConstraints = false
+        handImageYou.translatesAutoresizingMaskIntoConstraints = false
+        handImageBot.translatesAutoresizingMaskIntoConstraints = false
+        
         progressView.setProgress(0.5, animated: true)
         
         stackSelectLabel = UIStackView(arrangedSubviews:
@@ -101,30 +107,19 @@ class StartPlayViewController: UIViewController {
         scissorsButton.addTarget(self, action: #selector(scissorsButtonTapped), for: .touchUpInside)
         randomButton.addTarget(self, action: #selector(randomButtonTapped), for: .touchUpInside)
         
-        //        vsLabel.isHidden = true
-        progressView.isHidden = true
-        handRock.isHidden = true
-        handPaper.isHidden = true
-        handSccisors.isHidden = true
-        handRandom.isHidden = true
-        handRockBot.isHidden = true
-        handPaperBot.isHidden = true
-        handSccisorsBot.isHidden = true
-        
         view.addSubview(pauseButton)
         view.addSubview(stackSelectLabel)
         view.addSubview(stackPaperRandom)
         view.addSubview(rockButton)
         view.addSubview(scissorsButton)
-        //        view.addSubview(vsLabel)
+        view.addSubview(winLoseOrDrawLabel)
         view.addSubview(progressView)
-        view.addSubview(handRock)
-        view.addSubview(handPaper)
-        view.addSubview(handSccisors)
-        view.addSubview(handRandom)
-        view.addSubview(handRockBot)
-        view.addSubview(handPaperBot)
-        view.addSubview(handSccisorsBot)
+        view.addSubview(handYou)
+        view.addSubview(handBot)
+        view.addSubview(whiteViewYou)
+        view.addSubview(whiteViewBot)
+        view.addSubview(handImageYou)
+        view.addSubview(handImageBot)
     }
     
     private func selectActionLabel(text: String, color: UIColor) -> UILabel{
@@ -149,99 +144,129 @@ class StartPlayViewController: UIViewController {
     private func play(sign: Sign) {
         let computerSign = randomSign()
         
-        //        switch computerSign {
-        //        case .rock:
-        //            handRockBot.isHidden = false
-        //        case .paper:
-        //            handPaperBot.isHidden = false
-        //        case .scissors:
-        //            handSccisorsBot.isHidden = false
-        //        case .random:
-        //            handPaperBot.isHidden = false
-        //        }
+        handImageBot.image = computerSign.imageHand
+        
+        switch computerSign {
+        case .rock:
+            setupDisplayHand()
+        case .paper:
+            setupDisplayHand()
+        case .scissors:
+            setupDisplayHand()
+        }
         
         switch sign {
         case .rock:
-            setHandIsHidden(name: handRock)
+            handImageYou.image = UIImage(named: "rockHandSpecialBackground")
+            setupDisplayHand()
         case .paper:
-            setHandIsHidden(name: handPaper)
+            handImageYou.image = UIImage(named: "handPaperSpecialBackground")
+            setupDisplayHand()
         case .scissors:
-            setHandIsHidden(name: handSccisors)
-        case .random:
-            setHandIsHidden(name: handRandom)
+            handImageYou.image = UIImage(named: "handSccisorsSpecialBackground")
+            setupDisplayHand()
         }
         
-        progressView.isHidden = false
         let result = sign.getResult(oposite: computerSign)
-        let currentValue = progressView.progress
+        let currentProgress = self.progressView.progress
         
         switch result {
         case .start:
             print("Never")
         case .win:
-            print("win")
-            UIView.animate(withDuration: 0.5) {
-                self.progressView.setProgress(currentValue + 0.3, animated: true)
-            } completion: { _ in
-                self.checkResult()
-                self.resetPlay()
+            winLoseOrDrawLabel.text = "WIN!"
+            winLoseOrDrawLabel.textColor = .specialYellow
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                UIView.animate(withDuration: 0.8) {
+                    self.progressView.setProgress(currentProgress + 0.25, animated: true)
+                }
             }
         case .lose:
-            print("lose")
-            UIView.animate(withDuration: 0.5) {
-                self.progressView.setProgress(currentValue - 0.3, animated: true)
-            } completion: { _ in
-                self.checkResult()
-                self.resetPlay()
+            winLoseOrDrawLabel.text = "LOSE!"
+            winLoseOrDrawLabel.textColor = .specialPurple
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                UIView.animate(withDuration: 0.8) {
+                    self.progressView.setProgress(currentProgress - 0.25, animated: true)
+                }
             }
         case .draw:
-            print("draw")
-            self.resetPlay()
+            winLoseOrDrawLabel.textColor = .specialWhite
+            winLoseOrDrawLabel.text = "DRAW!"
         }
     }
     
-    private func setHandIsHidden(name: Hand) {
-        rockButton.isHidden = true
-        paperButton.isHidden = true
-        scissorsButton.isHidden = true
-        randomButton.isHidden = true
-        stackSelectLabel.isHidden = true
-        //            vsLabel.isHidden = false
-        name.isHidden = false
-    }
-    
-    private func resetPlay() {
-        rockButton.isHidden = false
-        paperButton.isHidden = false
-        scissorsButton.isHidden = false
-        randomButton.isHidden = false
-        stackSelectLabel.isHidden = true
-        handRock.isHidden = true
-        handPaper.isHidden = true
-        handSccisors.isHidden = true
-        handRandom.isHidden = true
+    private func setupDisplayHand() {
+        
+        UIView.animateKeyframes(withDuration: 6.5, delay: 0.0) {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.05) {
+                self.rockButton.alpha = 0
+                self.paperButton.alpha = 0
+                self.scissorsButton.alpha = 0
+                self.randomButton.alpha = 0
+                self.stackSelectLabel.alpha = 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.15) {
+                self.handBot.alpha = 1
+                self.whiteViewBot.alpha = 1
+                self.handImageBot.alpha = 1
+                self.handYou.alpha = 1
+                self.whiteViewYou.alpha = 1
+                self.handImageYou.alpha = 1
+                self.winLoseOrDrawLabel.alpha = 1
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.25) {
+                self.winLoseOrDrawLabel.alpha = 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.35, relativeDuration: 0.45) {
+                self.progressView.alpha = 1
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.85) {
+                self.handBot.alpha = 0
+                self.whiteViewBot.alpha = 0
+                self.handImageBot.alpha = 0
+                self.handYou.alpha = 0
+                self.whiteViewYou.alpha = 0
+                self.handImageYou.alpha = 0
+                self.winLoseOrDrawLabel.alpha = 0
+                self.progressView.alpha = 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 1) {
+                self.rockButton.alpha = 1
+                self.paperButton.alpha = 1
+                self.scissorsButton.alpha = 1
+                self.randomButton.alpha = 1
+                self.stackSelectLabel.alpha = 1
+            }
+            
+        } completion: { done in
+            if done {
+                self.checkResult()
+            }
+        }
     }
     
     private func checkResult() {
         let currentValue = progressView.progress
         
         if currentValue == 1 {
-            self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU WIN", text: "Play again")
-            UIView.animate(withDuration: 0.8) {
-                self.progressView.setProgress(0.5, animated: true)
-            }
+            self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU WIN", text: "Play again", color: .specialYellow)
+            self.progressView.setProgress(0.5, animated: true)
         }
         
         if currentValue == 0 {
-            self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU LOSE", text: "Play again")
-            UIView.animate(withDuration: 0.8) {
-                self.progressView.setProgress(0.5, animated: true)
-            }
+            self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU LOSE", text: "Play again", color: .specialPurple)
+            self.progressView.setProgress(0.5, animated: true)
         }
     }
     
     @objc private func pauseButtonTapped() {
-        customAlertPause.presentCustomAlert(viewController: self, title: "Setting", text: "Resume")
+        customAlertPause.presentCustomAlert(viewController: self, title: "Setting", text: "Resume", color: .specialWhite)
         customAlertSetting.switchSoundTapped()
     }
     
@@ -261,9 +286,11 @@ class StartPlayViewController: UIViewController {
     }
     
     @objc private func randomButtonTapped() {
-        play(sign: .random)
+        let randomSign = randomSign()
+        play(sign: randomSign)
         customAlertSetting.switchSoundTapped()
     }
+    
 }
 
 // MARK: - Set Constraints
@@ -298,49 +325,47 @@ extension StartPlayViewController {
             scissorsButton.leadingAnchor.constraint(equalTo: stackPaperRandom.trailingAnchor, constant: 40),
             scissorsButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             
-//            vsLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            vsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            winLoseOrDrawLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            winLoseOrDrawLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             progressView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             progressView.heightAnchor.constraint(equalToConstant: 20),
             
-            handRock.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            handRock.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handRock.widthAnchor.constraint(equalToConstant: 70),
-            handRock.topAnchor.constraint(equalTo: stackSelectLabel.bottomAnchor, constant: 60),
+            handYou.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            handYou.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            handYou.widthAnchor.constraint(equalToConstant: 65),
+            handYou.topAnchor.constraint(equalTo: whiteViewYou.bottomAnchor),
             
-            handPaper.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            handPaper.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handPaper.widthAnchor.constraint(equalToConstant: 70),
-            handPaper.topAnchor.constraint(equalTo: stackSelectLabel.bottomAnchor, constant: 60),
+            handBot.topAnchor.constraint(equalTo: view.topAnchor),
+            handBot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            handBot.widthAnchor.constraint(equalToConstant: 65),
+            handBot.bottomAnchor.constraint(equalTo: whiteViewBot.topAnchor),
             
-            handSccisors.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            handSccisors.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handSccisors.widthAnchor.constraint(equalToConstant: 70),
-            handSccisors.topAnchor.constraint(equalTo: stackSelectLabel.bottomAnchor, constant: 60),
+            whiteViewYou.bottomAnchor.constraint(equalTo: handYou.topAnchor),
+            whiteViewYou.centerXAnchor.constraint(equalTo: handYou.centerXAnchor),
+            whiteViewYou.widthAnchor.constraint(equalToConstant: 60),
+            whiteViewYou.heightAnchor.constraint(equalToConstant: 10),
             
-            handRandom.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            handRandom.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handRandom.widthAnchor.constraint(equalToConstant: 70),
-            handRandom.topAnchor.constraint(equalTo: stackSelectLabel.bottomAnchor, constant: 60),
+            whiteViewBot.topAnchor.constraint(equalTo: handBot.bottomAnchor),
+            whiteViewBot.centerXAnchor.constraint(equalTo: handBot.centerXAnchor),
+            whiteViewBot.widthAnchor.constraint(equalToConstant: 60),
+            whiteViewBot.heightAnchor.constraint(equalToConstant: 10),
             
-            handRockBot.topAnchor.constraint(equalTo: view.topAnchor),
-            handRockBot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handRockBot.widthAnchor.constraint(equalToConstant: 70),
-            handRockBot.bottomAnchor.constraint(equalTo: stackSelectLabel.topAnchor, constant: -60),
+            handImageYou.bottomAnchor.constraint(equalTo: whiteViewYou.topAnchor),
+            handImageYou.topAnchor.constraint(equalTo: stackSelectLabel.bottomAnchor, constant: 20),
+            handImageYou.centerXAnchor.constraint(equalTo: whiteViewYou.centerXAnchor),
+            handImageYou.widthAnchor.constraint(equalToConstant: 90),
+            handImageYou.heightAnchor.constraint(equalToConstant: 90),
             
-            handPaperBot.topAnchor.constraint(equalTo: view.topAnchor),
-            handPaperBot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handPaperBot.widthAnchor.constraint(equalToConstant: 70),
-            handPaperBot.bottomAnchor.constraint(equalTo: stackSelectLabel.topAnchor, constant: -60),
-            
-            handSccisorsBot.topAnchor.constraint(equalTo: view.topAnchor),
-            handSccisorsBot.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handSccisorsBot.widthAnchor.constraint(equalToConstant: 70),
-            handSccisorsBot.bottomAnchor.constraint(equalTo: stackSelectLabel.topAnchor, constant: -60),
-            
+            handImageBot.topAnchor.constraint(equalTo: whiteViewBot.bottomAnchor),
+            handImageBot.bottomAnchor.constraint(equalTo: stackSelectLabel.topAnchor, constant: -20),
+            handImageBot.centerXAnchor.constraint(equalTo: whiteViewBot.centerXAnchor),
+            handImageBot.widthAnchor.constraint(equalToConstant: 90),
+            handImageBot.heightAnchor.constraint(equalToConstant: 90),
         ])
     }
 }
+
+
