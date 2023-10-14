@@ -51,7 +51,9 @@ class SeeInstructionViewController: UIViewController {
     }
     
     @objc private func seeCloseButton() {
+        let customAlertSetting = CustomAlertSettingView()
         self.dismiss(animated: true)
+        customAlertSetting.switchSoundTapped()
     }
 }
 
@@ -71,7 +73,8 @@ extension SeeInstructionViewController {
             
             imageRPS.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             imageRPS.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            imageRPS.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            imageRPS.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageRPS.heightAnchor.constraint(equalToConstant: 375)
         ])
     }
 }
