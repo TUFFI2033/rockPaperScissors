@@ -28,6 +28,13 @@
 		DD7DE1432AC986720072890B /* lady-of-the-80x27s-128379.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */; };
 		DDA810372AD5E2240061C88B /* StartPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA810362AD5E2240061C88B /* StartPlayViewController.swift */; };
 		DDA8103B2AD72B810061C88B /* SeeInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */; };
+		DDF5CB542ADBEE8700E58F48 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB532ADBEE8700E58F48 /* ShopViewController.swift */; };
+		DDF5CB562ADBEF9100E58F48 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB552ADBEF9100E58F48 /* CoinsView.swift */; };
+		DDF5CB5B2ADC14D500E58F48 /* ShopCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB5A2ADC14D500E58F48 /* ShopCollectionView.swift */; };
+		DDF5CB5E2ADC172500E58F48 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB5D2ADC172500E58F48 /* ShopCollectionViewCell.swift */; };
+		DDF5CB602ADC1FC500E58F48 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB5F2ADC1FC500E58F48 /* ShopView.swift */; };
+		DDF5CB632ADC2B0400E58F48 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB622ADC2B0400E58F48 /* ShopModel.swift */; };
+		DDF5CB672ADC398300E58F48 /* GameCoinsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB662ADC398300E58F48 /* GameCoinsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +61,13 @@
 		DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lady-of-the-80x27s-128379.mp3"; sourceTree = "<group>"; };
 		DDA810362AD5E2240061C88B /* StartPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPlayViewController.swift; sourceTree = "<group>"; };
 		DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeInstructionViewController.swift; sourceTree = "<group>"; };
+		DDF5CB532ADBEE8700E58F48 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		DDF5CB552ADBEF9100E58F48 /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
+		DDF5CB5A2ADC14D500E58F48 /* ShopCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionView.swift; sourceTree = "<group>"; };
+		DDF5CB5D2ADC172500E58F48 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDF5CB5F2ADC1FC500E58F48 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		DDF5CB622ADC2B0400E58F48 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		DDF5CB662ADC398300E58F48 /* GameCoinsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoinsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +112,7 @@
 			children = (
 				DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */,
 				DD3BAF022AC78285004C7200 /* MusicSetting.swift */,
+				DDF5CB552ADBEF9100E58F48 /* CoinsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -140,9 +155,11 @@
 			isa = PBXGroup;
 			children = (
 				DD664AFA2AC0AAFE008B1363 /* Application */,
+				DDF5CB652ADC392C00E58F48 /* ManagerCoins */,
 				DD664AFD2AC0AB5E008B1363 /* MainModule */,
-				DDA810382AD72B080061C88B /* SeeInstructionModule */,
 				DD1530D02AC84378006C9964 /* StartPlayModule */,
+				DDF5CB512ADBEE2E00E58F48 /* ShopModule */,
+				DDA810382AD72B080061C88B /* SeeInstructionModule */,
 				DD664B002AC0ABC3008B1363 /* Extensions */,
 				DD664AFB2AC0AB24008B1363 /* SupportingFiles */,
 			);
@@ -240,6 +257,58 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		DDF5CB512ADBEE2E00E58F48 /* ShopModule */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5CB612ADC2AF100E58F48 /* Model */,
+				DDF5CB592ADC149300E58F48 /* Views */,
+				DDF5CB522ADBEE6700E58F48 /* Controllers */,
+			);
+			path = ShopModule;
+			sourceTree = "<group>";
+		};
+		DDF5CB522ADBEE6700E58F48 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5CB532ADBEE8700E58F48 /* ShopViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DDF5CB592ADC149300E58F48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5CB5C2ADC16FE00E58F48 /* Cell */,
+				DDF5CB5A2ADC14D500E58F48 /* ShopCollectionView.swift */,
+				DDF5CB5F2ADC1FC500E58F48 /* ShopView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDF5CB5C2ADC16FE00E58F48 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5CB5D2ADC172500E58F48 /* ShopCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DDF5CB612ADC2AF100E58F48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5CB622ADC2B0400E58F48 /* ShopModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDF5CB652ADC392C00E58F48 /* ManagerCoins */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5CB662ADC398300E58F48 /* GameCoinsManager.swift */,
+			);
+			path = ManagerCoins;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,17 +384,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD664AEB2AC0AA29008B1363 /* ViewController.swift in Sources */,
+				DDF5CB562ADBEF9100E58F48 /* CoinsView.swift in Sources */,
 				DD44F5AC2AD1D1380068B240 /* Sign.swift in Sources */,
 				DD44F5AA2AD1D0AC0068B240 /* GameState.swift in Sources */,
 				DD664B032AC0AC28008B1363 /* UIColor + Extensions.swift in Sources */,
 				DD44F5A52AD1A2E80068B240 /* Hand.swift in Sources */,
 				DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */,
 				DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */,
+				DDF5CB602ADC1FC500E58F48 /* ShopView.swift in Sources */,
 				DD44F5AE2AD2DAA00068B240 /* CustomAlert.swift in Sources */,
 				DD3BAF032AC78285004C7200 /* MusicSetting.swift in Sources */,
+				DDF5CB5B2ADC14D500E58F48 /* ShopCollectionView.swift in Sources */,
+				DDF5CB5E2ADC172500E58F48 /* ShopCollectionViewCell.swift in Sources */,
 				DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */,
+				DDF5CB672ADC398300E58F48 /* GameCoinsManager.swift in Sources */,
 				DDA8103B2AD72B810061C88B /* SeeInstructionViewController.swift in Sources */,
 				DDA810372AD5E2240061C88B /* StartPlayViewController.swift in Sources */,
+				DDF5CB632ADC2B0400E58F48 /* ShopModel.swift in Sources */,
+				DDF5CB542ADBEE8700E58F48 /* ShopViewController.swift in Sources */,
 				DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */,
 				DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */,
 				DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */,
