@@ -58,6 +58,7 @@ class StartPlayViewController: UIViewController {
     private lazy var scissorsButton = UIButton()
     private lazy var randomButton = UIButton()
     private lazy var stackPaperRandom = UIStackView()
+    private let coinsView = CoinsView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,8 @@ class StartPlayViewController: UIViewController {
         view.backgroundColor = .specialBackground
         whiteViewYou.backgroundColor = .specialWhite
         whiteViewBot.backgroundColor = .specialWhite
+        
+        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
         
         progressView.alpha = 0
         winLoseOrDrawLabel.alpha = 0
@@ -108,6 +111,7 @@ class StartPlayViewController: UIViewController {
         randomButton.addTarget(self, action: #selector(randomButtonTapped), for: .touchUpInside)
         
         view.addSubview(pauseButton)
+        view.addSubview(coinsView)
         view.addSubview(stackSelectLabel)
         view.addSubview(stackPaperRandom)
         view.addSubview(rockButton)
@@ -257,16 +261,17 @@ class StartPlayViewController: UIViewController {
         if currentValue == 1 {
             self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU WIN", text: "Play again", color: .specialYellow)
             self.progressView.setProgress(0.5, animated: true)
+            GameCurrencyManager.shared.addCoins(5)
+            coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
         }
         
         if currentValue == 0 {
             self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU LOSE", text: "Play again", color: .specialPurple)
-            self.progressView.setProgress(0.5, animated: true)
-        }
+            self.progressView.setProgress(0.5, animated: true)        }
     }
     
     @objc private func pauseButtonTapped() {
-        customAlertPause.presentCustomAlert(viewController: self, title: "Setting", text: "Resume", color: .specialWhite)
+        customAlertPause.presentCustomAlert(viewController: self, title: "Pause", text: "Resume", color: .specialWhite)
         customAlertSetting.switchSoundTapped()
     }
     
@@ -303,6 +308,11 @@ extension StartPlayViewController {
             pauseButton.widthAnchor.constraint(equalToConstant: 40),
             pauseButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             pauseButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            
+            coinsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            coinsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            coinsView.heightAnchor.constraint(equalToConstant: 30),
+            coinsView.widthAnchor.constraint(equalToConstant: 100),
             
             stackSelectLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackSelectLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
