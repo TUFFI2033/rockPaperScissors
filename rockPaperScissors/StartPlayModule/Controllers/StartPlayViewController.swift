@@ -272,11 +272,7 @@ class StartPlayViewController: UIViewController {
     
     @objc private func pauseButtonTapped() {
         customAlertPause.presentCustomAlert(viewController: self, title: "Pause", text: "Resume", color: .specialWhite)
-<<<<<<< Updated upstream
-        customAlertSetting.switchSoundTapped()
-=======
         customAlertSetting.soundPlay()
->>>>>>> Stashed changes
     }
     
     @objc private func rockButtonTapped() {

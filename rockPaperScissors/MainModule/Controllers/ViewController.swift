@@ -112,7 +112,7 @@ class ViewController: UIViewController {
         let shopViewController = ShopViewController()
         shopViewController.modalPresentationStyle = .fullScreen
         present(shopViewController, animated: true)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func seeInstructionButtonTapped() {
