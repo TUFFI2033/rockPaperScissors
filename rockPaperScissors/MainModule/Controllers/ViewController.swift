@@ -98,14 +98,14 @@ class ViewController: UIViewController {
     
     @objc private func settingButtonTapped() {
         customAlertSetting.presentCustomAlert(viewController: self)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func playButtonTapped() {
         let startPlayViewController = StartPlayViewController()
         startPlayViewController.modalPresentationStyle = .fullScreen
         present(startPlayViewController, animated: true)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func shopButtonTapped() {
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     @objc private func seeInstructionButtonTapped() {
         let seeInstruction = SeeInstructionViewController()
         present(seeInstruction, animated: true)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
 }
 

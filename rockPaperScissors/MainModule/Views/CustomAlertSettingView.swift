@@ -122,11 +122,9 @@ class CustomAlertSettingView: UIView {
         }
     }
     
-    @objc func switchSoundTapped() {
+    @objc private func switchSoundTapped() {
         if switchSound.isOn {
             SoundSetting.share.audioPlayer?.play()
-        } else {
-            SoundSetting.share.audioPlayer?.stop()
         }
     }
     
@@ -150,7 +148,9 @@ class CustomAlertSettingView: UIView {
         }
     }
     
-    
+    func soundPlay() {
+        switchSoundTapped()
+    }
 }
 
 // MARK: - Set Constraints

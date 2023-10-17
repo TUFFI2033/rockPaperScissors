@@ -272,28 +272,32 @@ class StartPlayViewController: UIViewController {
     
     @objc private func pauseButtonTapped() {
         customAlertPause.presentCustomAlert(viewController: self, title: "Pause", text: "Resume", color: .specialWhite)
+<<<<<<< Updated upstream
         customAlertSetting.switchSoundTapped()
+=======
+        customAlertSetting.soundPlay()
+>>>>>>> Stashed changes
     }
     
     @objc private func rockButtonTapped() {
         play(sign: .rock)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func paperButtonTapped() {
         play(sign: .paper)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func scissorsButtonTapped() {
         play(sign: .scissors)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func randomButtonTapped() {
         let randomSign = randomSign()
         play(sign: randomSign)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
 }

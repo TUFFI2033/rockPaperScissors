@@ -53,7 +53,7 @@ class SeeInstructionViewController: UIViewController {
     @objc private func seeCloseButton() {
         let customAlertSetting = CustomAlertSettingView()
         self.dismiss(animated: true)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
 }
 

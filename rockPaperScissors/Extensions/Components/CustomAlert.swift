@@ -95,7 +95,7 @@ class CustomAlert {
     @objc private func resumeButtonTapped() {
         guard let targetView = mainView else { return }
         
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
         
         UIView.animate(withDuration: 0.3) {
             self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
@@ -113,7 +113,7 @@ class CustomAlert {
     @objc private func quitButtonTapped() {
         guard let targetView = mainView else { return }
         
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
         
         UIView.animate(withDuration: 0.3) {
             self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
