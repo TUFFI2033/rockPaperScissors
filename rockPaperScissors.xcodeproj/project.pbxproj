@@ -15,6 +15,8 @@
 		DD44F5AC2AD1D1380068B240 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5AB2AD1D1380068B240 /* Sign.swift */; };
 		DD44F5AE2AD2DAA00068B240 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */; };
 		DD44F5B42AD320E50068B240 /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD44F5B32AD320E50068B240 /* sound.mp3 */; };
+		DD4E115F2AE59B5300E3BE4C /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E115E2AE59B5300E3BE4C /* ChooseViewController.swift */; };
+		DD4E11612AE5A2F400E3BE4C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4E11602AE5A2F400E3BE4C /* CustomButton.swift */; };
 		DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AE62AC0AA29008B1363 /* AppDelegate.swift */; };
 		DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AE82AC0AA29008B1363 /* SceneDelegate.swift */; };
 		DD664AEB2AC0AA29008B1363 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664AEA2AC0AA29008B1363 /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 		DD44F5AB2AD1D1380068B240 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		DD44F5B32AD320E50068B240 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
+		DD4E115E2AE59B5300E3BE4C /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
+		DD4E11602AE5A2F400E3BE4C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DD664AE32AC0AA29008B1363 /* rockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD664AE62AC0AA29008B1363 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD664AE82AC0AA29008B1363 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,14 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD1530D02AC84378006C9964 /* StartPlayModule */ = {
+		DD1530D02AC84378006C9964 /* PlayModule */ = {
 			isa = PBXGroup;
 			children = (
 				DD44F5A62AD1D06A0068B240 /* Model */,
 				DD1530D22AC843AA006C9964 /* Views */,
 				DD1530D32AC843B3006C9964 /* Controllers */,
 			);
-			path = StartPlayModule;
+			path = PlayModule;
 			sourceTree = "<group>";
 		};
 		DD1530D22AC843AA006C9964 /* Views */ = {
@@ -113,6 +117,7 @@
 				DD44F5AD2AD2DAA00068B240 /* CustomAlert.swift */,
 				DD3BAF022AC78285004C7200 /* MusicSetting.swift */,
 				DDF5CB552ADBEF9100E58F48 /* CoinsView.swift */,
+				DD4E11602AE5A2F400E3BE4C /* CustomButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -133,6 +138,30 @@
 				DD44F5AB2AD1D1380068B240 /* Sign.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DD4E11582AE59AA000E3BE4C /* ChooseModule */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E115B2AE59AF800E3BE4C /* Views */,
+				DD4E11592AE59AC100E3BE4C /* Controllers */,
+			);
+			path = ChooseModule;
+			sourceTree = "<group>";
+		};
+		DD4E11592AE59AC100E3BE4C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD4E115E2AE59B5300E3BE4C /* ChooseViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DD4E115B2AE59AF800E3BE4C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DD664ADA2AC0AA29008B1363 = {
@@ -157,7 +186,8 @@
 				DD664AFA2AC0AAFE008B1363 /* Application */,
 				DDF5CB652ADC392C00E58F48 /* ManagerCoins */,
 				DD664AFD2AC0AB5E008B1363 /* MainModule */,
-				DD1530D02AC84378006C9964 /* StartPlayModule */,
+				DD4E11582AE59AA000E3BE4C /* ChooseModule */,
+				DD1530D02AC84378006C9964 /* PlayModule */,
 				DDF5CB512ADBEE2E00E58F48 /* ShopModule */,
 				DDA810382AD72B080061C88B /* SeeInstructionModule */,
 				DD664B002AC0ABC3008B1363 /* Extensions */,
@@ -403,7 +433,9 @@
 				DDF5CB632ADC2B0400E58F48 /* ShopModel.swift in Sources */,
 				DDF5CB542ADBEE8700E58F48 /* ShopViewController.swift in Sources */,
 				DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */,
+				DD4E11612AE5A2F400E3BE4C /* CustomButton.swift in Sources */,
 				DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */,
+				DD4E115F2AE59B5300E3BE4C /* ChooseViewController.swift in Sources */,
 				DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

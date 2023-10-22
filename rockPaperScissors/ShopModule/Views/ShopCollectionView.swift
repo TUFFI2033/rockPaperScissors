@@ -65,6 +65,7 @@ class ShopCollectionView: UICollectionView {
 //MARK: - UICollectionViewDataSource
 
 extension ShopCollectionView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         shopItem.count
     }
@@ -85,8 +86,9 @@ extension ShopCollectionView: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegate
 
 extension ShopCollectionView: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tap Cell")
+        print(shopItem[indexPath.row])
     }
 }
 

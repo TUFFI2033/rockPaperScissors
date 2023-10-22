@@ -42,6 +42,12 @@ class ShopViewController: UIViewController {
     private let coinsView = CoinsView()
     private let shopView = ShopView()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,8 +57,6 @@ class ShopViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .specialBackground
-        
-        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
         
         view.addSubview(shopLabel)
         view.addSubview(coinsView)
@@ -90,7 +94,7 @@ extension ShopViewController {
             closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
             closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
             
-            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
             iCraftersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }

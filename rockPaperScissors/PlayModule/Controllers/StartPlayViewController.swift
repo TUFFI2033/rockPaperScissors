@@ -261,39 +261,42 @@ class StartPlayViewController: UIViewController {
         if currentValue == 1 {
             self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU WIN", text: "Play again", color: .specialYellow)
             self.progressView.setProgress(0.5, animated: true)
-            GameCurrencyManager.shared.addCoins(5)
-            coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
+            GameCurrencyManager.shared.addCoins(15)
         }
         
         if currentValue == 0 {
             self.customAlertPause.presentCustomAlert(viewController: self, title: "YOU LOSE", text: "Play again", color: .specialPurple)
-            self.progressView.setProgress(0.5, animated: true)        }
+            self.progressView.setProgress(0.5, animated: true)
+            GameCurrencyManager.shared.addCoins(5)
+        }
+        
+        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
     }
     
     @objc private func pauseButtonTapped() {
         customAlertPause.presentCustomAlert(viewController: self, title: "Pause", text: "Resume", color: .specialWhite)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func rockButtonTapped() {
         play(sign: .rock)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func paperButtonTapped() {
         play(sign: .paper)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func scissorsButtonTapped() {
         play(sign: .scissors)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func randomButtonTapped() {
         let randomSign = randomSign()
         play(sign: randomSign)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
 }

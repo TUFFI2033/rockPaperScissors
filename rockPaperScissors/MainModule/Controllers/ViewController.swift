@@ -34,29 +34,9 @@ class ViewController: UIViewController {
         return button
     }()
     
-    private lazy var playButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .specialYellow
-        button.layer.cornerRadius = 10
-        button.setTitle("PLAY", for: .normal)
-        button.tintColor = .specialBackground
-        button.titleLabel?.font = .robotoBold36()
-        button.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private lazy var playButton = CustomButton(text: "PLAY")
     
-    private lazy var shopButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .specialYellow
-        button.layer.cornerRadius = 10
-        button.setTitle("SHOP", for: .normal)
-        button.tintColor = .specialBackground
-        button.titleLabel?.font = .robotoBold26()
-        button.addTarget(self, action: #selector(shopButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private lazy var shopButton = CustomButton(text: "SHOP")
     
     private lazy var seeInstructionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -73,19 +53,26 @@ class ViewController: UIViewController {
     private let coinsView = CoinsView()
     private let customAlertSetting = CustomAlertSettingView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstrains()
-        MusicSetting.share.setMusic()
-        SoundSetting.share.setMusic()
+//        MusicSetting.share.setMusic()
+//        SoundSetting.share.setMusic()
     }
 
     private func setupViews() {
         view.backgroundColor = .specialBackground
         
-        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
+        playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        shopButton.addTarget(self, action: #selector(shopButtonTapped), for: .touchUpInside)
         
         view.addSubview(logoImage)
         view.addSubview(settingButton)
@@ -98,27 +85,27 @@ class ViewController: UIViewController {
     
     @objc private func settingButtonTapped() {
         customAlertSetting.presentCustomAlert(viewController: self)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func playButtonTapped() {
-        let startPlayViewController = StartPlayViewController()
-        startPlayViewController.modalPresentationStyle = .fullScreen
-        present(startPlayViewController, animated: true)
-        customAlertSetting.switchSoundTapped()
+        let chooseView = ChooseViewController()
+        chooseView.modalPresentationStyle = .fullScreen
+        present(chooseView, animated: true)
+        customAlertSetting.soundPlay()
     }
     
     @objc private func shopButtonTapped() {
         let shopViewController = ShopViewController()
         shopViewController.modalPresentationStyle = .fullScreen
         present(shopViewController, animated: true)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
     
     @objc private func seeInstructionButtonTapped() {
         let seeInstruction = SeeInstructionViewController()
         present(seeInstruction, animated: true)
-        customAlertSetting.switchSoundTapped()
+        customAlertSetting.soundPlay()
     }
 }
 
@@ -147,7 +134,7 @@ extension ViewController {
             playButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
             playButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
             
-            shopButton.heightAnchor.constraint(equalToConstant: 50),
+            shopButton.heightAnchor.constraint(equalToConstant: 70),
             shopButton.bottomAnchor.constraint(equalTo: seeInstructionButton.topAnchor, constant: -20),
             shopButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 55),
             shopButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -55),
@@ -157,7 +144,7 @@ extension ViewController {
             seeInstructionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             seeInstructionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
             
-            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            iCraftersLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
             iCraftersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
