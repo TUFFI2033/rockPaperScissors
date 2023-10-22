@@ -33,6 +33,8 @@ class SeeInstructionViewController: UIViewController {
         return image
     }()
     
+    private let customAlertSetting = CustomAlertSettingView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +53,6 @@ class SeeInstructionViewController: UIViewController {
     }
     
     @objc private func seeCloseButton() {
-        let customAlertSetting = CustomAlertSettingView()
         self.dismiss(animated: true)
         customAlertSetting.soundPlay()
     }
@@ -73,8 +74,7 @@ extension SeeInstructionViewController {
             
             imageRPS.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             imageRPS.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            imageRPS.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageRPS.heightAnchor.constraint(equalToConstant: 375)
+            imageRPS.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
