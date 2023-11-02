@@ -53,17 +53,7 @@ class CustomAlertSettingView: UIView {
         return toggle
     }()
     
-    private lazy var closeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .specialYellow
-        button.layer.cornerRadius = 10
-        button.setTitle("Close", for: .normal)
-        button.tintColor = .specialBackground
-        button.titleLabel?.font = .robotoBold26()
-        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    private lazy var closeButton = CustomButton(text: "Close", font: .robotoBold26())
     
     private var stackMusicView = UIStackView()
     private var stackSoundView = UIStackView()
@@ -101,6 +91,9 @@ class CustomAlertSettingView: UIView {
         
         stackMusicView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Music"), switchMusic], axis: .horizontal, spacing: 70)
         stackSoundView = UIStackView(arrangedSubviews: [labelMusicOrSound(text: "Sound"), switchSound], axis: .horizontal, spacing: 70)
+        
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        
         alertView.addSubview(stackMusicView)
         alertView.addSubview(stackSoundView)
         alertView.addSubview(closeButton)

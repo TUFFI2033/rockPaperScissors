@@ -29,6 +29,7 @@ class SeeInstructionViewController: UIViewController {
     private let imageRPS: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "RPS_instuctions")
+        image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()

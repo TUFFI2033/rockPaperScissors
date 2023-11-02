@@ -9,14 +9,9 @@ import UIKit
 
 class Hand: UIView {
     
-    private let youOrBot: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = .robotoBold40()
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let handImage = UIImageView()
+    
+    private let whiteView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,18 +24,27 @@ class Hand: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(text: String, textColor: UIColor, background: UIColor){
+    convenience init(background: UIColor){
         self.init()
         
         backgroundColor = background
-        youOrBot.text = text
-        youOrBot.textColor = textColor
     }
     
     private func setupViews() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(youOrBot)
+        handImage.translatesAutoresizingMaskIntoConstraints = false
+        handImage.image = UIImage(named: "rockHandSpecialBackground")
+        
+        whiteView.translatesAutoresizingMaskIntoConstraints = false
+        whiteView.backgroundColor = .white
+        
+        addSubview(handImage)
+        addSubview(whiteView)
+    }
+    
+    func setNewImageHand(imageNamed: String) {
+        handImage.image = UIImage(named: imageNamed)
     }
 }
 
@@ -50,8 +54,15 @@ extension Hand {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            youOrBot.centerXAnchor.constraint(equalTo: centerXAnchor),
-            youOrBot.centerYAnchor.constraint(equalTo: centerYAnchor),
+            handImage.widthAnchor.constraint(equalToConstant: 90),
+            handImage.heightAnchor.constraint(equalToConstant: 90),
+            handImage.bottomAnchor.constraint(equalTo: whiteView.topAnchor),
+            handImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            whiteView.bottomAnchor.constraint(equalTo: topAnchor),
+            whiteView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            whiteView.heightAnchor.constraint(equalToConstant: 15),
+            whiteView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9)
         ])
     }
 }

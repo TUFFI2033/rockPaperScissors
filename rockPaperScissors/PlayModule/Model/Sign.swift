@@ -7,52 +7,44 @@
 
 import UIKit
 
-func randomSign() -> Sign {
-    let randomChoise = Int.random(in: 0...2)
+class Sign {
     
-    switch randomChoise {
-    case 0:
-        return .rock
-    case 1:
-        return .paper
-    default:
-        return .scissors
-    }
-}
-
-enum Sign {
+    static let shared = Sign()
+    private init() {}
     
-    case rock, paper, scissors
-    
-    func getResult(oposite: Sign) -> GameState {
-        switch (self, oposite) {
-        case (.rock, .scissors),
-            (.paper, .rock),
-            (.scissors, .paper):
-            print(self, oposite)
-            return .win
-        case (.rock, .rock),
-            (.paper, .paper),
-            (.scissors, .scissors):
-            print(self, oposite)
-            return .draw
-        default :
-            print(self, oposite)
-            return .lose
-        }
-    }
-
-    var imageHand: UIImage {
+    func randomSign() -> SignEnum {
+        let randomChoise = Int.random(in: 0...2)
         
-        switch self {
-        case .rock:
-            return UIImage(named: "rockHandSpecialBackgroundBot")!
-        case .paper:
-            return UIImage(named: "handPaperSpecialBackgroundBot")!
-        case .scissors:
-            return UIImage(named: "handSccisorsSpecialBackgroundBot")!
+        switch randomChoise {
+        case 0:
+            return .rock
+        case 1:
+            return .paper
+        default:
+            return .scissors
+        }
+    }
+    
+    enum SignEnum {
+        case rock, paper, scissors
+        
+        func getResult(oposite: SignEnum) -> GameState {
+            switch (self, oposite) {
+            case (.rock, .scissors),
+                (.paper, .rock),
+                (.scissors, .paper):
+                print(self, oposite)
+                return .win
+            case (.rock, .rock),
+                (.paper, .paper),
+                (.scissors, .scissors):
+                print(self, oposite)
+                return .draw
+            default :
+                print(self, oposite)
+                return .lose
+            }
         }
     }
 }
-
 

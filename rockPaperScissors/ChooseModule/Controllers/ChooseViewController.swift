@@ -11,26 +11,44 @@ class ChooseViewController: UIViewController {
     
     private let chooseLabel: UILabel = {
         let label = UILabel()
-        label.text = "Chose the number of rounds to Win"
+        label.text = "Сhoose a way to play"
         label.font = .robotoBold40()
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
         label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = .specialWhite
+        label.textColor = .specialYellow
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let roundOneButton = CustomButton(text: "1\nRound")
-    private let roundThreeButton = CustomButton(text: "3\nRound")
-    private let roundFiveButton = CustomButton(text: "5\nRound")
-    private let roundScaleButton = CustomButton(text: "Scale")
+    private lazy var homeButton = CustomButton(text: "Home", font: .robotoBold20())
+    private lazy var roundOneButton = ChooseRoundView(image: UIImage(named: "round1"), 
+                                                      text: "Round 1", 
+                                                      tapGesture: UITapGestureRecognizer(
+                                                        target: self,
+                                                        action: #selector(roundOneButtonTapped)))
+    private lazy var roundThreeButton = ChooseRoundView(image: UIImage(named: "round3"),
+                                                        text: "Round 3", 
+                                                        tapGesture: UITapGestureRecognizer(
+                                                            target: self,
+                                                            action: #selector(roundThreeButtonTapped)))
+    private lazy var roundScaleButton = ChooseRoundView(image: UIImage(named: "firstScale"),
+                                                        text: "Who fills the scale first?", 
+                                                        tapGesture: UITapGestureRecognizer(
+                                                            target: self,
+                                                            action: #selector(roundScaleButtonTapped)))
+    private lazy var stackRoundButton = UIStackView(
+        arrangedSubviews: [roundOneButton, roundThreeButton, roundScaleButton],
+        axis: .vertical, spacing: 20)
     
-    private lazy var stackOneThreeButton = UIStackView(arrangedSubviews: [roundOneButton, roundThreeButton],
-                                                       axis: .horizontal, spacing: 20)
-    private lazy var stackFiveScaleButton = UIStackView(arrangedSubviews: [roundFiveButton, roundScaleButton],
-                                                        axis: .horizontal, spacing: 20)
-    private lazy var stackButton = UIStackView(arrangedSubviews: [stackOneThreeButton, stackFiveScaleButton],
-                                                        axis: .vertical, spacing: 20)
+    private let coinsView = CoinsView()
+    private let playViewController = PlayViewController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        coinsView.updateCoinsLabel(newBalance: GameCurrencyManager.shared.getCoinsBalance())
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +59,50 @@ class ChooseViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = .specialBackground
+    
+        homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
+        
+        stackRoundButton.distribution = .fillEqually
         
         view.addSubview(chooseLabel)
-        view.addSubview(stackButton)
+        view.addSubview(coinsView)
+        view.addSubview(homeButton)
+        view.addSubview(stackRoundButton)
+    }
+    
+    private func roundViewEfectsTapped(chooseRoundView: ChooseRoundView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            chooseRoundView.alpha = 0.7
+        }) { _ in
+            UIView.animate(withDuration: 0.2) {
+                chooseRoundView.alpha = 1.0
+            }
+        }
+    }
+    
+    @objc private func homeButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func roundOneButtonTapped() {
+        playViewController.countRound = 1
+        roundViewEfectsTapped(chooseRoundView: roundOneButton)
+        playViewController.modalPresentationStyle = .fullScreen
+        present(playViewController, animated: true)
+    }
+    
+    @objc private func roundThreeButtonTapped() {
+        playViewController.countRound = 3
+        roundViewEfectsTapped(chooseRoundView: roundThreeButton)
+        playViewController.modalPresentationStyle = .fullScreen
+        present(playViewController, animated: true)
+    }
+    
+    @objc private func roundScaleButtonTapped() {
+        playViewController.countRound = Int.max
+        roundViewEfectsTapped(chooseRoundView: roundScaleButton)
+        playViewController.modalPresentationStyle = .fullScreen
+        present(playViewController, animated: true)
     }
 }
 
@@ -53,15 +112,25 @@ extension ChooseViewController {
     
     private func setConstrains() {
         NSLayoutConstraint.activate([
-            chooseLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            coinsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            coinsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            coinsView.heightAnchor.constraint(equalToConstant: 30),
+            coinsView.widthAnchor.constraint(equalToConstant: 100),
+            
+            chooseLabel.topAnchor.constraint(equalTo: coinsView.bottomAnchor, constant: 20),
             chooseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             chooseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            chooseLabel.heightAnchor.constraint(equalToConstant: 200),
+            chooseLabel.heightAnchor.constraint(equalToConstant: 40),
             
-            stackButton.topAnchor.constraint(equalTo: chooseLabel.bottomAnchor, constant: 20),
-            stackButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stackButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            stackRoundButton.topAnchor.constraint(equalTo: chooseLabel.bottomAnchor, constant: 20),
+            stackRoundButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            stackRoundButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            stackRoundButton.bottomAnchor.constraint(equalTo: homeButton.topAnchor, constant: -20),
+            
+            homeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            homeButton.heightAnchor.constraint(equalToConstant: 40),
+            homeButton.widthAnchor.constraint(equalToConstant: 150),
+            homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

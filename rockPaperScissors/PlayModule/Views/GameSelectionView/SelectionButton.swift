@@ -1,13 +1,13 @@
 //
-//  CustomButton.swift
+//  SelectionButton.swift
 //  rockPaperScissors
 //
-//  Created by Ivan Byndiu on 22/10/2023.
+//  Created by Ivan Byndiu on 28/10/2023.
 //
 
 import UIKit
 
-class CustomButton: UIButton {
+class SelectionButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,17 +18,16 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(text: String, font: UIFont? = .robotoBold36()) {
+    convenience init(image: String) {
         self.init(type: .system)
-        setTitle(text, for: .normal)
-        titleLabel?.font = font
+        setImage(UIImage(named: image), for: .normal)
         configure()
     }
     
     private func configure() {
-        layer.cornerRadius = 10
-        backgroundColor = .specialYellow
-        tintColor = .specialBackground
+        backgroundColor = .specialPurple
+        tintColor = .specialHand
+        layer.cornerRadius = 20
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

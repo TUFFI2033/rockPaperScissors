@@ -38,6 +38,7 @@ class CustomAlert {
     private lazy var quitButton = UIButton()
     private lazy var stackView = UIStackView()
     private let customAlertSetting = CustomAlertSettingView()
+    weak var playViewController: PlayViewController?
     
     func presentCustomAlert(viewController: UIViewController,title: String, text: String, color: UIColor) {
         
@@ -94,8 +95,11 @@ class CustomAlert {
     
     @objc private func resumeButtonTapped() {
         guard let targetView = mainView else { return }
-        
         customAlertSetting.soundPlay()
+        
+        if resumeButton.titleLabel?.text == "Play Again" {
+            playViewController?.resetGame()
+        }
         
         UIView.animate(withDuration: 0.3) {
             self.alertView.frame = CGRect(x: 55, y: targetView.frame.height, width: targetView.frame.width - 110, height: 280)
@@ -123,7 +127,7 @@ class CustomAlert {
             } completion: { done in
                 if done {
                     self.scrollView.removeFromSuperview()
-                    if let viewController = self.mainView?.findViewController(ofType: StartPlayViewController.self) {
+                    if let viewController = self.mainView?.findViewController(ofType: PlayViewController.self) {
                         viewController.dismiss(animated: true)
                     }
                 }

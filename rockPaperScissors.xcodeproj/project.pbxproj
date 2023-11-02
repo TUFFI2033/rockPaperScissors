@@ -28,8 +28,14 @@
 		DD664B0E2AC0BD5B008B1363 /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */; };
 		DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7DE1402AC978680072890B /* UIView + Extensions.swift */; };
 		DD7DE1432AC986720072890B /* lady-of-the-80x27s-128379.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */; };
-		DDA810372AD5E2240061C88B /* StartPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA810362AD5E2240061C88B /* StartPlayViewController.swift */; };
 		DDA8103B2AD72B810061C88B /* SeeInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */; };
+		DDB335752AE8450C0059C8A8 /* ChooseRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB335742AE8450C0059C8A8 /* ChooseRoundView.swift */; };
+		DDB335772AEAE63B0059C8A8 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB335762AEAE63B0059C8A8 /* PlayViewController.swift */; };
+		DDB335792AEAE9CA0059C8A8 /* VictoryLapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB335782AEAE9CA0059C8A8 /* VictoryLapView.swift */; };
+		DDB3357B2AEAFE050059C8A8 /* GameSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3357A2AEAFE050059C8A8 /* GameSelectionView.swift */; };
+		DDB3357E2AED01D00059C8A8 /* SelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3357D2AED01D00059C8A8 /* SelectionButton.swift */; };
+		DDB335802AED15AA0059C8A8 /* PlaySign.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB3357F2AED15AA0059C8A8 /* PlaySign.swift */; };
+		DDB335822AED4EE70059C8A8 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB335812AED4EE60059C8A8 /* ProgressView.swift */; };
 		DDF5CB542ADBEE8700E58F48 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB532ADBEE8700E58F48 /* ShopViewController.swift */; };
 		DDF5CB562ADBEF9100E58F48 /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB552ADBEF9100E58F48 /* CoinsView.swift */; };
 		DDF5CB5B2ADC14D500E58F48 /* ShopCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5CB5A2ADC14D500E58F48 /* ShopCollectionView.swift */; };
@@ -63,8 +69,14 @@
 		DD664B0D2AC0BD5B008B1363 /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		DD7DE1402AC978680072890B /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		DD7DE1422AC986720072890B /* lady-of-the-80x27s-128379.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "lady-of-the-80x27s-128379.mp3"; sourceTree = "<group>"; };
-		DDA810362AD5E2240061C88B /* StartPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPlayViewController.swift; sourceTree = "<group>"; };
 		DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeInstructionViewController.swift; sourceTree = "<group>"; };
+		DDB335742AE8450C0059C8A8 /* ChooseRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseRoundView.swift; sourceTree = "<group>"; };
+		DDB335762AEAE63B0059C8A8 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		DDB335782AEAE9CA0059C8A8 /* VictoryLapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryLapView.swift; sourceTree = "<group>"; };
+		DDB3357A2AEAFE050059C8A8 /* GameSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectionView.swift; sourceTree = "<group>"; };
+		DDB3357D2AED01D00059C8A8 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
+		DDB3357F2AED15AA0059C8A8 /* PlaySign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySign.swift; sourceTree = "<group>"; };
+		DDB335812AED4EE60059C8A8 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		DDF5CB532ADBEE8700E58F48 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		DDF5CB552ADBEF9100E58F48 /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
 		DDF5CB5A2ADC14D500E58F48 /* ShopCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionView.swift; sourceTree = "<group>"; };
@@ -99,6 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				DD44F5A42AD1A2E80068B240 /* Hand.swift */,
+				DDB335782AEAE9CA0059C8A8 /* VictoryLapView.swift */,
+				DDB3357C2AED01870059C8A8 /* GameSelectionView */,
+				DDB335812AED4EE60059C8A8 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,7 +121,7 @@
 		DD1530D32AC843B3006C9964 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDA810362AD5E2240061C88B /* StartPlayViewController.swift */,
+				DDB335762AEAE63B0059C8A8 /* PlayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +151,7 @@
 			children = (
 				DD44F5A92AD1D0AC0068B240 /* GameState.swift */,
 				DD44F5AB2AD1D1380068B240 /* Sign.swift */,
+				DDB3357F2AED15AA0059C8A8 /* PlaySign.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,7 +159,7 @@
 		DD4E11582AE59AA000E3BE4C /* ChooseModule */ = {
 			isa = PBXGroup;
 			children = (
-				DD4E115B2AE59AF800E3BE4C /* Views */,
+				DDB335732AE844DF0059C8A8 /* Views */,
 				DD4E11592AE59AC100E3BE4C /* Controllers */,
 			);
 			path = ChooseModule;
@@ -155,13 +171,6 @@
 				DD4E115E2AE59B5300E3BE4C /* ChooseViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		DD4E115B2AE59AF800E3BE4C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		DD664ADA2AC0AA29008B1363 = {
@@ -285,6 +294,23 @@
 				DDA8103A2AD72B810061C88B /* SeeInstructionViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DDB335732AE844DF0059C8A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDB335742AE8450C0059C8A8 /* ChooseRoundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDB3357C2AED01870059C8A8 /* GameSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3357A2AEAFE050059C8A8 /* GameSelectionView.swift */,
+				DDB3357D2AED01D00059C8A8 /* SelectionButton.swift */,
+			);
+			path = GameSelectionView;
 			sourceTree = "<group>";
 		};
 		DDF5CB512ADBEE2E00E58F48 /* ShopModule */ = {
@@ -415,8 +441,11 @@
 			files = (
 				DD664AEB2AC0AA29008B1363 /* ViewController.swift in Sources */,
 				DDF5CB562ADBEF9100E58F48 /* CoinsView.swift in Sources */,
+				DDB335772AEAE63B0059C8A8 /* PlayViewController.swift in Sources */,
 				DD44F5AC2AD1D1380068B240 /* Sign.swift in Sources */,
 				DD44F5AA2AD1D0AC0068B240 /* GameState.swift in Sources */,
+				DDB335792AEAE9CA0059C8A8 /* VictoryLapView.swift in Sources */,
+				DDB3357E2AED01D00059C8A8 /* SelectionButton.swift in Sources */,
 				DD664B032AC0AC28008B1363 /* UIColor + Extensions.swift in Sources */,
 				DD44F5A52AD1A2E80068B240 /* Hand.swift in Sources */,
 				DD3BAEFE2AC760F8004C7200 /* UIStackView + Extensions.swift in Sources */,
@@ -427,13 +456,16 @@
 				DDF5CB5B2ADC14D500E58F48 /* ShopCollectionView.swift in Sources */,
 				DDF5CB5E2ADC172500E58F48 /* ShopCollectionViewCell.swift in Sources */,
 				DD7DE1412AC978680072890B /* UIView + Extensions.swift in Sources */,
+				DDB335822AED4EE70059C8A8 /* ProgressView.swift in Sources */,
 				DDF5CB672ADC398300E58F48 /* GameCoinsManager.swift in Sources */,
+				DDB3357B2AEAFE050059C8A8 /* GameSelectionView.swift in Sources */,
 				DDA8103B2AD72B810061C88B /* SeeInstructionViewController.swift in Sources */,
-				DDA810372AD5E2240061C88B /* StartPlayViewController.swift in Sources */,
 				DDF5CB632ADC2B0400E58F48 /* ShopModel.swift in Sources */,
 				DDF5CB542ADBEE8700E58F48 /* ShopViewController.swift in Sources */,
 				DD3BAEFC2AC60DD1004C7200 /* CustomAlertSettingView.swift in Sources */,
+				DDB335802AED15AA0059C8A8 /* PlaySign.swift in Sources */,
 				DD4E11612AE5A2F400E3BE4C /* CustomButton.swift in Sources */,
+				DDB335752AE8450C0059C8A8 /* ChooseRoundView.swift in Sources */,
 				DD664AE72AC0AA29008B1363 /* AppDelegate.swift in Sources */,
 				DD4E115F2AE59B5300E3BE4C /* ChooseViewController.swift in Sources */,
 				DD664AE92AC0AA29008B1363 /* SceneDelegate.swift in Sources */,

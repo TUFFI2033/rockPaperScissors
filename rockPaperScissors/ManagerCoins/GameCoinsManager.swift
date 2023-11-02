@@ -25,6 +25,11 @@ class GameCurrencyManager {
         saveCoins()
     }
     
+    func minusCoins(_ amount: Int) {
+        coins -= amount
+        saveCoins()
+    }
+    
     func subtractCoins(_ amount: Int) -> Bool {
         if coins >= amount {
             coins -= amount
